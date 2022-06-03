@@ -1,12 +1,16 @@
 import Order from './components/order';
-import Menu from './components/menu';
+import MenuList from './components/MenuList';
+import DATA from './data';
 import { useState } from 'react';
 
 
 import './App.css';
 
+const INITIAL_STATE = [];
+
 function App() {
   const [screen, setScreen] = useState('menuScreen');
+  const [items, setItems] = useState(INITIAL_STATE);
 
   return (
     <div className="App">
@@ -21,7 +25,7 @@ function App() {
       </header>
 
 
-      {screen === 'menuScreen' && <Menu />}
+      {screen === 'menuScreen' && <MenuList DATA={DATA} />}
       {screen === 'orderScreen' && <Order />}
 
     

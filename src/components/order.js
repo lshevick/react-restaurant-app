@@ -57,33 +57,13 @@ const Order = () => {
 
     return <div className="order-screen">
         <div className="order-cart">
-            <ul>
-                <li>
-                    <p>Gyoza</p>
-                    <span>$4.00</span>
-                </li>
-
-                <li>
-                    <p>Edamame</p>
-                    <span>$2.00</span>
-                </li>
-
-                <li>
-                    <p>California Roll</p>
-                    <span>$5.00</span>
-                </li>
-
-                <li>
-                    <p>Spider Roll</p>
-                    <span>$9.00</span>
-                </li>
-            </ul>
+            {isEditing ? orderEdit : orderView}
             <div className="order-total">
                 <p>Order Total</p>
                 <span>$20.00</span>
             </div>
             <div className="order-controls">
-                <button type="button">Edit Order</button>
+                <button type="button" onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}>Edit Order</button>
                 <button type="button">Place Order</button>
             </div>
         </div>

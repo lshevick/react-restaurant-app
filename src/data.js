@@ -70,3 +70,5 @@ const DATA = [
         category: 'Dessert'
     }
 ]
+
+export default DATA;

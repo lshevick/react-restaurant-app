@@ -1,6 +1,6 @@
-
-
 .navbar {
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   background-color: teal;
@@ -55,6 +55,10 @@
   list-style: none;
 }
 
+main {
+  padding-top: 5rem;
+}
+
 .main-menu {
   display: flex;
   flex-direction: column;
@@ -103,5 +107,47 @@
 
 .add-item:hover {
   background-color: #aaa;
-    transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.order-screen {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.order-cart ul {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-cart li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  border-bottom: 1px solid #333;
+}
+
+.order-total {
+  margin: 0 auto;
+  background-color: #ccc;
+  padding: 0.5rem;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-total p,
+.order-total span {
+  font-size: 1.05rem;
+  font-weight: bolder;
+
 }

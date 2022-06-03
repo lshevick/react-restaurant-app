@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import Order from './components/order';
+import Menu from './components/menu';
+import { useState } from 'react';
+
+
 import './App.css';
 
 function App() {
+  const [screen, setScreen] = useState('menuScreen');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <nav className='navbar'>
+          <button className='homepage'>Fujiwara Sushi</button>
+          <ul className='nav-list'>
+            <li className='nav-item'><button onClick={() => setScreen('menuScreen')}>Menu</button></li>
+            <li className='nav-item'><button onClick={() => setScreen('orderScreen')}>Orders</button><span className='order-num'>4</span></li>
+          </ul>
+        </nav>
       </header>
+
+
+      {screen === 'menuScreen' && <Menu />}
+      {screen === 'orderScreen' && <Order />}
+
+    
+
+
     </div>
   );
 }

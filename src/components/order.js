@@ -1,57 +1,55 @@
 import { useState } from "react";
 
-const Order = () => {
+
+const Order = ({ order, removeFromOrder, formatter }) => {
     const [isEditing, setIsEditing] = useState(false);
+
+
+    const prevOrders = (
+        JSON.parse(localStorage.getItem('savedOrder'))
+    )
+
+    const totalPrices = () => {
+        const prices = order.reduce((acc, item) => {
+            return acc + item.price;
+        }, 0)
+        return formatter.format(prices);
+    }
+
+
+    const viewOrderItem = (
+        order.map((item) => (
+            <li key={item.id}>
+                <p>
+                    <span>{item.amount}  </span>
+                    {item.name}</p>
+                <span>{formatter.format(item.price)}</span>
+            </li>
+        ))
+    )
+
+    const editOrderItem = (
+        order.map((item) => (
+            <li key={item.id}>
+                <p>
+                    <span>{item.amount} </span>
+                    {item.name}</p>
+                <button type='button' onClick={() => removeFromOrder(item.id)}>Remove</button>
+                <span>{formatter.format(item.price)}</span>
+            </li>
+        ))
+    )
+
 
     const orderEdit = (
         <ul>
-            <li>
-                <p>Gyoza</p>
-                <button type='button'>Remove</button>
-                <span>$4.00</span>
-            </li>
-
-            <li>
-                <p>Edamame</p>
-                <button type='button'>Remove</button>
-                <span>$2.00</span>
-            </li>
-
-            <li>
-                <p>California Roll</p>
-                <button type='button'>Remove</button>
-                <span>$5.00</span>
-            </li>
-
-            <li>
-                <p>Spider Roll</p>
-                <button type='button'>Remove</button>
-                <span>$9.00</span>
-            </li>
+            {editOrderItem}
         </ul>
     )
 
     const orderView = (
         <ul>
-            <li>
-                <p>Gyoza</p>
-                <span>$4.00</span>
-            </li>
-
-            <li>
-                <p>Edamame</p>
-                <span>$2.00</span>
-            </li>
-
-            <li>
-                <p>California Roll</p>
-                <span>$5.00</span>
-            </li>
-
-            <li>
-                <p>Spider Roll</p>
-                <span>$9.00</span>
-            </li>
+            {viewOrderItem}
         </ul>
     )
 
@@ -60,12 +58,16 @@ const Order = () => {
             {isEditing ? orderEdit : orderView}
             <div className="order-total">
                 <p>Order Total</p>
-                <span>$20.00</span>
+                <span>{totalPrices()}</span>
             </div>
             <div className="order-controls">
                 <button type="button" onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}>Edit Order</button>
-                <button type="button">Place Order</button>
+                <button type="button" onClick={() => localStorage.setItem('savedOrder', JSON.stringify(order))}>Place Order</button>
+
             </div>
+        </div>
+        <div className="placed-orders">
+            
         </div>
     </div>;
 }

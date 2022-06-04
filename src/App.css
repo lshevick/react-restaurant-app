@@ -1,9 +1,12 @@
 .navbar {
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   background-color: teal;
+  z-index: 10;
 }
 
 .homepage {
@@ -149,5 +152,26 @@ main {
 .order-total span {
   font-size: 1.05rem;
   font-weight: bolder;
+}
 
+.home-screen {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.home-screen img {
+  position: absolute;
+  z-index: -10;
+}
+
+.home-screen h1 {
+  font-size: 5rem;
+  padding: 2rem 1.5rem;
+  background: #045a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }

@@ -40,8 +40,12 @@ function App() {
     setOrder(updatedOrder);
   }
 
+  const totalAmount = (
+    order.length === 0 ? 0 : order.map((item) => item.amount).reduce((prev, current) => prev + current)
+  )
+
   const checkOrder = (
-    order.length === 0 ? <span></span> : <span className='order-num'>{order.length}</span>
+    totalAmount === 0 ? <span></span> : <span className='order-num'>{totalAmount}</span>
   )
 
   return (

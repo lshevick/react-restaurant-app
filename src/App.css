@@ -175,3 +175,10 @@ main {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+@media (min-width: 572px) {
+  main, .order-screen {
+    width: 66%;
+    margin: 0 auto;
+  }
+}

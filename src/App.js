@@ -1,11 +1,14 @@
+import './App.css';
 import Order from './components/order';
 import MenuList from './components/MenuList';
 import Homescreen from './components/Homescreen';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFish } from '@fortawesome/free-solid-svg-icons';
 import DATA from './data';
 import { useState } from 'react';
 
 
-import './App.css';
+
 
 const INITIAL_STATE = [];
 
@@ -45,7 +48,7 @@ function App() {
     <div className="App">
       <header>
         <nav className='navbar'>
-          <button className='homepage' onClick={() => setScreen('homescreen')}>Fujiwara Sushi</button>
+          <button className='homepage' onClick={() => setScreen('homescreen')}><FontAwesomeIcon icon={faFish} style={{color: '#B55A2B', fontSize: '3rem'}} /></button>
           <ul className='nav-list'>
             <li className='nav-item'><button onClick={() => setScreen('menuScreen')}>Menu</button></li>
             <li className='nav-item'><button onClick={() => setScreen('orderScreen')}>Order</button>

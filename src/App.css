@@ -95,6 +95,17 @@ main {
   display: inline-block;
   text-align: center;
   padding: 1rem;
+  padding-top: 2.5rem;
+}
+
+.item-name {
+  margin-bottom: 0;
+}
+
+.item-description {
+  color: #555;
+  padding: 0.5rem;
+  font-size: 0.7rem;
 }
 
 .add-item {
@@ -154,6 +165,46 @@ main {
   font-weight: bolder;
 }
 
+.order-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-edit, .button-place {
+  border-radius: 5px;
+  border: 1px solid #777;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  font-weight: bolder;
+}
+
+.button-edit {
+  background-color: #fff;
+}
+
+.button-edit:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.button-edit:active {
+  background-color: #ddd;
+}
+
+.button-place {
+  background-color: #007373;
+  color: #eee;
+}
+
+.button-place:hover {
+  background-color: #066;
+  cursor: pointer;
+}
+
+.button-place:active {
+  background-color: #055;
+}
+
 .home-screen {
   position: relative;
   height: 100vh;
@@ -181,4 +232,22 @@ main {
     width: 66%;
     margin: 0 auto;
   }
+}
+
+.prev-order {
+  border-top: 1px solid #333;
+  margin: 0 1rem;
+  margin-top: 3rem;
+}
+
+.prev-order ul {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+} 
+
+.prev-order li {
+  display: flex;
+  justify-content: space-between;
 }

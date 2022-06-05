@@ -24,10 +24,8 @@ function App() {
     if (!order.find(i => i.name === orderItem.name)) {
       orderItem.amount = 1;
       setOrder([...order, orderItem]);
-      // console.log('first time', orderItem);
     } else {
       const index = order.findIndex((e) => e.name === orderItem.name);
-      // console.log('already added', order[index])
       order[index].amount = order[index].amount + 1;
       order[index].price = order[index].price + orderItem.price;
     }

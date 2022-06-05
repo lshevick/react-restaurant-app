@@ -8,7 +8,7 @@ const Order = ({ order, removeFromOrder, formatter }) => {
     const prevOrders = (
         data.map((item) => (
             <li key={item.name}>
-                <p>{item.name}</p>
+                <p>{item.amount}  {item.name}</p>
                 <span>{formatter.format(item.price)}</span> 
                 </li>
         ))
@@ -66,12 +66,12 @@ const Order = ({ order, removeFromOrder, formatter }) => {
                 <span>{totalPrices()}</span>
             </div>
             <div className="order-controls">
-                <button type="button" onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}>Edit Order</button>
-                <button type="button" onClick={() => localStorage.setItem('savedOrder', JSON.stringify(order))}>Place Order</button>
+                <button className='button-edit' type="button" onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}>Edit Order</button>
+                <button className='button-place' type="button" onClick={() => localStorage.setItem('savedOrder', JSON.stringify(order))}>Place Order</button>
 
             </div>
         </div>
-        <div className="placed-orders">
+        <div className="prev-order">
             <h2>Previous Order</h2>
             <ul>
             {prevOrders}

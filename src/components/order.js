@@ -3,16 +3,16 @@ import { useState } from "react";
 
 const Order = ({ order, removeFromOrder, formatter }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const data = JSON.parse(localStorage.getItem('savedOrder'));
+    // const data = JSON.parse(localStorage.getItem('savedOrder'));
 
-    const prevOrders = (
-        data.map((item) => (
-            <li key={item.name}>
-                <p>{item.amount}  {item.name}</p>
-                <span>{formatter.format(item.price)}</span> 
-                </li>
-        ))
-    )
+    // const prevOrders = (
+    //     data.map((item) => (
+    //         <li key={item.name}>
+    //             <p>{item.amount}  {item.name}</p>
+    //             <span>{formatter.format(item.price)}</span> 
+    //             </li>
+    //     ))
+    // )
 
     const totalPrices = () => {
         const prices = order.reduce((acc, item) => {
@@ -71,12 +71,12 @@ const Order = ({ order, removeFromOrder, formatter }) => {
 
             </div>
         </div>
-        <div className="prev-order">
+        {/* <div className="prev-order">
             <h2>Previous Order</h2>
             <ul>
             {prevOrders}
             </ul>
-        </div>
+        </div> */}
     </div>;
 }
 

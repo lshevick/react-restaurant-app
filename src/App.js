@@ -50,7 +50,7 @@ function App() {
     <div className="App">
       <header>
         <nav className='navbar'>
-          <button className='homepage' onClick={() => setScreen('homescreen')}><FontAwesomeIcon icon={faFish} style={{color: '#B55A2B', fontSize: '3rem'}} /></button>
+          <button className='homepage' onClick={() => setScreen('homescreen')}><FontAwesomeIcon icon={faFish} style={{color: '#B55A2B', fontSize: '3rem', marginLeft: '1rem'}} /></button>
           <ul className='nav-list'>
             <li className='nav-item'><button onClick={() => setScreen('menuScreen')}>Menu</button></li>
             <li className='nav-item'><button onClick={() => setScreen('orderScreen')}>Order</button>

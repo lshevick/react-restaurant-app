@@ -3,12 +3,23 @@ import { useState } from "react";
 
 const Order = ({ order, removeFromOrder, formatter }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [prevOrder, setPrevOrder] = useState([]);
 
 
-    const data = JSON.parse(localStorage.getItem('savedOrder'));
+    
+    const updateOrder = () => {
+        localStorage.setItem('savedOrder', JSON.stringify(order))
+       console.log(JSON.parse(localStorage.getItem('savedOrder')));
+        return setPrevOrder(JSON.parse(localStorage.getItem('savedOrder')));
+    }
 
+    const getPrevOrder = () => {
+        console.log(JSON.parse(localStorage.getItem('savedOrder')))
+        return setPrevOrder(JSON.parse(localStorage.getItem('savedOrder')));
+    }
+    
     const prevOrders = (
-        data.map((item) => (
+        prevOrder.map((item) => (
             <li key={item.name}>
                 <p>{item.amount}  {item.name}</p>
                 <span>{formatter.format(item.price)}</span> 
@@ -69,17 +80,17 @@ const Order = ({ order, removeFromOrder, formatter }) => {
             </div>
             <div className="order-controls">
                 <button className='button-edit' type="button" onClick={() => isEditing ? setIsEditing(false) : setIsEditing(true)}>Edit Order</button>
-                <button className='button-place' type="button" onClick={() => localStorage.setItem('savedOrder', JSON.stringify(order))}>Place Order</button>
+                <button className='button-place' type="button" onClick={() => updateOrder()}>Place Order</button>
 
             </div>
         </div>
-        {order && 
-        (<div className="prev-order">
+        <div className="prev-order">
             <h2>Previous Order</h2>
+            <button type='button' onClick={() => getPrevOrder()}>See Previous Order</button>
             <ul>
             {prevOrders}
             </ul>
-        </div>)}
+        </div>
     </div>;
 }
 

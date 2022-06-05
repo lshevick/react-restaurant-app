@@ -6,10 +6,10 @@ const Order = ({ order, removeFromOrder, formatter }) => {
     const [prevOrder, setPrevOrder] = useState([]);
 
 
-    
+
     const updateOrder = () => {
         localStorage.setItem('savedOrder', JSON.stringify(order))
-       console.log(JSON.parse(localStorage.getItem('savedOrder')));
+        console.log(JSON.parse(localStorage.getItem('savedOrder')));
         return setPrevOrder(JSON.parse(localStorage.getItem('savedOrder')));
     }
 
@@ -17,13 +17,13 @@ const Order = ({ order, removeFromOrder, formatter }) => {
         console.log(JSON.parse(localStorage.getItem('savedOrder')))
         return setPrevOrder(JSON.parse(localStorage.getItem('savedOrder')));
     }
-    
+
     const prevOrders = (
         prevOrder.map((item) => (
             <li key={item.name}>
                 <p>{item.amount}  {item.name}</p>
-                <span>{formatter.format(item.price)}</span> 
-                </li>
+                <span>{formatter.format(item.price)}</span>
+            </li>
         ))
     )
 
@@ -86,9 +86,9 @@ const Order = ({ order, removeFromOrder, formatter }) => {
         </div>
         <div className="prev-order">
             <h2>Previous Order</h2>
-            <button type='button' onClick={() => getPrevOrder()}>See Previous Order</button>
+            <button className="prev-order-button" type='button' onClick={() => getPrevOrder()}>See Previous Order</button>
             <ul>
-            {prevOrders}
+                {prevOrders}
             </ul>
         </div>
     </div>;

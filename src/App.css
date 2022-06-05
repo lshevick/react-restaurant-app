@@ -251,3 +251,22 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
+.prev-order-button {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #777;
+  margin: 0.5rem 1rem;
+  margin-left: 0;
+  padding: 0.5rem;
+  font-weight: bolder;
+}
+
+.prev-order-button:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.prev-order-button:active {
+  background-color: #ddd;
+}
